@@ -85,6 +85,10 @@
       <artifactId>avro</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.apache.hcatalog</groupId>
+      <artifactId>webhcat-java-client</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-client</artifactId>
       <exclusions>

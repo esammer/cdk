@@ -42,6 +42,7 @@
     <vers.hadoop>2.0.0-cdh4.2.0</vers.hadoop>
     <vers.jexl>2.1.1</vers.jexl>
     <vers.rat>0.8</vers.rat>
+    <vers.webhcat-client>0.4.0-cdh4.2.0</vers.webhcat-client>
   </properties>
 
   <repositories>
@@ -197,6 +198,11 @@
         <groupId>org.apache.crunch</groupId>
         <artifactId>crunch</artifactId>
         <version>${vers.crunch}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.hcatalog</groupId>
+        <artifactId>webhcat-java-client</artifactId>
+        <version>${vers.webhcat-client}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
