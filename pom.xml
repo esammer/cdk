@@ -12,6 +12,7 @@
     <module>cdk-examples</module>
     <module>cdk-parent</module>
     <module>cdk-tools</module>
+    <module>cdk-docs</module>
   </modules>
 
   <name>Cloudera Development Kit</name>

@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright 2013 Cloudera Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!DOCTYPE chapter>
+
+<chapter xmlns="http://docbook.org/ns/docbook"
+         xml:id="ch1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xsi:schemaLocation="http://docbook.org/ns/docbook http://docbook.org/xml/5.0/rng/docbook.rng">
+
+  <info>
+    <title>Overview</title>
+  </info>
+
+  <para>
+    The Cloudera Development Kit, or CDK for short, is a set of libraries,
+    tools, and documentation focused on making it easier to build systems on top
+    of the Hadoop ecosystem.
+  </para>
+  <para>
+    This project is organized into modules. Modules may be independent or have
+    dependencies on other modules within the CDK. When possible, dependencies on
+    external projects are minimized.
+  </para>
+
+  <section>
+    <info>
+      <title>Modules</title>
+    </info>
+
+    <para>TODO</para>
+  </section>
+
+  <section>
+    <info>
+      <title>License</title>
+    </info>
+
+    <para>The CDK is provided under the Apache Software License 2.0. See the
+      file
+      <filename>LICENSE.txt</filename>
+      for more information.
+    </para>
+  </section>
+
+  <section xml:id="how-to-contribute">
+    <info>
+      <title>How to Contribute</title>
+    </info>
+
+    <para>
+      The CDK is an open source project open to contribution from anyone who
+      chooses to do so. Anyone may contribute anything to the project they wish.
+      This includes, but is not limited to: code, build system enhancements,
+      documentation, examples, and supporting tools. There are, however, a few
+      guidelines, as well as even fewer hard rules we ask you to follow.
+    </para>
+    <section>
+      <info>
+        <title>Complete a Contributor License Agreement</title>
+      </info>
+
+      <para>
+        In order to accept any contribution, the contributor must complete and
+        return a
+        <firstterm>Contributor License Agreement</firstterm>, or CLA. Separate
+        CLAs exist for individuals (an individual contributor license agreement,
+        or ICLA) and corporations (a CCLA). The CLA grants a copyright and
+        patent license to Cloudera, and users of the software, states that you
+        are legally entitled to grant such a license, as well as other important
+        stuff. See the
+        <filename>icla.txt</filename>
+        and
+        <filename>ccla.txt</filename>
+        files included with this software for all of the details.
+      </para>
+      <para>
+        Completed CLAs may be emailed, faxed, or snail mailed to Cloudera.
+      </para>
+      <para>
+        TODO: Add proper contact info.
+      </para>
+    </section>
+    <section>
+      <info>
+        <title>Create a Pull Request</title>
+      </info>
+
+      <para>
+        This project uses Github. Pull requests are the easiest form of
+        contribution to accept and preferred. If this sounds like Klingon to
+        you, Github has an excellent description of
+        <link xlink:href="http://help.github.com/articles/using-pull-requests">
+          using pull requests</link>. We follow the
+        <firstterm>Fork &amp; Pull</firstterm>
+        model described in the Github documentation.
+      </para>
+    </section>
+    <section>
+      <info>
+        <title>Tips</title>
+      </info>
+
+      <para>Contributions are strongly encouraged. It's the easiest way to get
+        the features you want into the code, and fast. However, the project
+        maintainers are tasked with developing software for many people with
+        diverse requirements and, as a result, may not accept all contributions.
+        Here are some tips for ensuring a contribution is accepted.
+      </para>
+
+      <itemizedlist>
+        <listitem>
+          <para>Think about everyone.</para>
+
+          <para>
+            It's really important to remember that many people use this
+            software. Features, improvements, or changes that do not apply to a
+            wide audience may not make sense to include in the project. Put
+            yourself in other people's shoes and ask if this is something that
+            is useful to them.
+          </para>
+        </listitem>
+
+        <listitem>
+          <para>Think about everyone.</para>
+
+          <para>
+            It's really important to remember that many people use this
+            software. Features, improvements, or changes that do not apply to a
+            wide audience may not make sense to include in the project. Put
+            yourself in other people's shoes and ask if this is something that
+            is useful to them.
+          </para>
+        </listitem>
+
+        <listitem>
+          <para>Follow existing style and standards.</para>
+
+          <para>
+            It's critical that the code base, docs, and examples behave and look
+            the same. If some parts of the code use different libraries to do
+            the same thing, have slightly different semantics or guarantees, use
+            different naming conventions, or track different standards, it's
+            very likely your contribution can't be accepted. Put yourself in the
+            shoes of a new contributor; they should only have to learn a single
+            way of doing things.
+          </para>
+        </listitem>
+
+        <listitem>
+          <para>Accept feedback and provide rationale.</para>
+
+          <para>
+            It's likely that you'll receive feedback on your contribution,
+            especially those who are new to contributing to open source
+            projects. Don't panic! We're all very nice people. Keep a few things
+            in mind:
+          </para>
+
+          <itemizedlist>
+            <listitem>
+              <para>If we disagree, help us understand the rationale behind a
+                decision. Maybe we're missing something.
+              </para>
+            </listitem>
+
+            <listitem>
+              <para>Questions are usually just questions, and are not meant to
+                question your ability. It's just as awkward for us to ask as it
+                is for you to "defend" your decisions. Bear with us, and
+                remember that our goal is to serve the larger community of
+                users.
+              </para>
+            </listitem>
+
+            <listitem>
+              <para>It helps to detach your idea from your implementation.
+                Sometimes, you may be asked to make changes to your
+                implementation, but everyone agrees that the idea is great. Be
+                open to that.
+              </para>
+            </listitem>
+
+            <listitem>
+              <para>
+                Many times feedback is subjective. Words like
+                <quote>elegant,</quote>
+                <quote>simple,</quote>
+                and
+                <quote>easy</quote>
+                are often thrown around, but hard to define. It's important to
+                recognize that one person's
+                <quote>simple</quote>
+                is another person's
+                <quote>complex,</quote>
+                except in the case of
+                <quote>simply complex.</quote>
+
+              </para>
+            </listitem>
+
+            <listitem>
+              <para>
+                We are incredibly grateful you took the time to contribute, even
+                if we decide we can't accept your code.
+              </para>
+            </listitem>
+
+            <listitem>
+              <para>Disagree and commit</para>
+
+              <para>
+                Sometimes, there's no compromise, no middle ground. Sometimes,
+                people are just going to see things differently. Some people
+                like baseball; not everything in life makes sense. When this
+                happens, please understand we're all just trying to do what we
+                think is right. If a contribution is rejected, or something
+                doesn't make sense, tell us, accept the decision, and move on.
+              </para>
+
+              <para>Watch this:
+                <link
+                  xlink:href="http://ecorner.stanford.edu/authorMaterialInfo.html?mid=1642">
+                  http://ecorner.stanford.edu/authorMaterialInfo.html?mid=1642
+                </link>
+              </para>
+
+              <para>Now watch it again:
+                <link
+                  xlink:href="http://ecorner.stanford.edu/authorMaterialInfo.html?mid=1642">
+                  http://ecorner.stanford.edu/authorMaterialInfo.html?mid=1642
+                </link>
+              </para>
+            </listitem>
+          </itemizedlist>
+
+        </listitem>
+
+      </itemizedlist>
+
+    </section>
+  </section>
+
+  <section>
+    <info>
+      <title>Frequently Asked Questions</title>
+    </info>
+
+    <qandaset>
+      <qandaentry>
+        <question>
+          <para>What license is this library made available under?</para>
+        </question>
+        <answer>
+          <para>
+            This software is licensed under the Apache Software License 2.0. A
+            file named
+            <filename>LICENSE.txt</filename>
+            should have been included with the software.
+          </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>
+            Why use this library over direct interaction with HDFS?
+          </para>
+        </question>
+        <answer>
+          <para>
+            HDFS provides byte-oriented input and output streams. Most
+            developers prefer to think in terms of higher level objects than
+            files and directories, and frequently graft concepts of "tables" or
+            "datasets" on to data stored in HDFS. This library aims to give you
+            that, out of the box, in a pleasant format that works with the rest
+            of the ecosystem, while still giving you efficient access to your
+            data.
+          </para>
+          <para>
+            Further, we've found that picking from the myriad of file formats
+            and compression options is a weird place from which to start one's
+            Hadoop journey. Rather than say "it depends," and lead developers
+            through a decision tree, we decided to create a set of APIs that
+            does what you ultimately want some high percentage of the time. For
+            the rest of the time, well, feature requests are happily accepted
+            (double karma if they come with patches)!
+          </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>What format is my data stored in?</para>
+        </question>
+        <answer>
+          <para>
+            Snappy compressed, binary, Avro data files, according to Avro's
+            object
+            <link
+              xlink:href="http://avro.apache.org/docs/current/spec.html#Object+Container+Files">
+              container file spec
+            </link>. Avro meets the criteria for sane storage and operation of
+            data. Specifically, Avro:
+          </para>
+          <itemizedlist>
+            <listitem>
+              <para>has a binary representation that is compact.</para>
+            </listitem>
+            <listitem>
+              <para>has a binary representation that is compact.</para>
+            </listitem>
+            <listitem>
+              <para>supports compression of data.</para>
+            </listitem>
+            <listitem>
+              <para>is splittable by MapReduce jobs, including when compressed.
+              </para>
+            </listitem>
+            <listitem>
+              <para>is self-describing.</para>
+            </listitem>
+            <listitem>
+              <para>is fast to serialize/deserialize.</para>
+            </listitem>
+            <listitem>
+              <para>is well-supported within the Hadoop ecosystem.</para>
+            </listitem>
+            <listitem>
+              <para>is open source under a permissive license.</para>
+            </listitem>
+          </itemizedlist>
+        </answer>
+      </qandaentry>
+      <qandaentry xml:id="faq-protos">
+        <question>
+          <para>Why not store data as protocol buffers?</para>
+        </question>
+        <answer>
+          <para>
+            Protos do not define a standard for storing a set of protocol buffer
+            encoded records in a file that supports compression and is also
+            splittable by MapReduce.
+          </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Why not store data as thrift?</para>
+        </question>
+        <answer>
+          <para>See
+            <xref linkend="faq-protos"/>
+          </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Why not store data as Java serialization?</para>
+        </question>
+        <answer>
+          <para>See
+            <link xlink:href="https://github.com/eishay/jvm-serializers/wiki">
+              https://github.com/eishay/jvm-serializers/wiki</link>. In other
+            words, because it's terrible.
+          </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Can I contribute code/docs/examples?</para>
+        </question>
+        <answer>
+          <para>Absolutely! You're encouraged to read
+            <xref linkend="how-to-contribute"/>
+            docs included with the source code. In short, you must:
+          </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                Be able to (legally) complete, sign, and return a contributor
+                license agreement.
+              </para>
+            </listitem>
+            <listitem>
+              <para>Follow the existing style and standards.</para>
+            </listitem>
+          </itemizedlist>
+        </answer>
+      </qandaentry>
+    </qandaset>
+  </section>
+
+</chapter>
