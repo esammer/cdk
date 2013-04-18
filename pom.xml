@@ -13,6 +13,7 @@
     <module>cdk-data</module>
     <module>cdk-examples</module>
     <module>cdk-tools</module>
+    <module>cdk-morphlines</module>
   </modules>
 
   <name>Cloudera Development Kit</name>
