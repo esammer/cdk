@@ -47,16 +47,29 @@ import java.net.URL;
 public class DatasetDescriptor {
 
   private final Schema schema;
+  private final Format format;
   private final PartitionStrategy partitionStrategy;
 
   /**
-   * Create an instance of this class with the supplied {@link Schema} and
-   * optional {@link PartitionStrategy}.
+   * Create an instance of this class with the supplied {@link Schema},
+   * and optional {@link PartitionStrategy}. The default {@link Format},
+   * {@link Formats#AVRO}, will be used.
    */
-  public DatasetDescriptor(Schema schema,
-    @Nullable PartitionStrategy partitionStrategy) {
+  public DatasetDescriptor(Schema schema, @Nullable PartitionStrategy
+      partitionStrategy) {
+
+    this(schema, Formats.AVRO, partitionStrategy);
+  }
+
+  /**
+   * Create an instance of this class with the supplied {@link Schema},
+   * {@link Format} and optional {@link PartitionStrategy}.
+   */
+  DatasetDescriptor(Schema schema, Format format,
+      @Nullable PartitionStrategy partitionStrategy) {
 
     this.schema = schema;
+    this.format = format;
     this.partitionStrategy = partitionStrategy;
   }
 
@@ -71,6 +84,15 @@ public class DatasetDescriptor {
    */
   public Schema getSchema() {
     return schema;
+  }
+
+  /**
+   * Get the associated {@link Format} that the data is stored in.
+   *
+   * @return the format
+   */
+  public Format getFormat() {
+    return format;
   }
 
   /**
@@ -108,6 +130,7 @@ public class DatasetDescriptor {
   public static class Builder implements Supplier<DatasetDescriptor> {
 
     private Schema schema;
+    private Format format = Formats.AVRO;
     private PartitionStrategy partitionStrategy;
 
     /**
@@ -242,6 +265,17 @@ public class DatasetDescriptor {
     }
 
     /**
+     * Configure the dataset's format. Optional. If not specified {@link Formats#AVRO}
+     * is used by default.
+     *
+     * @return An instance of the builder for method chaining.
+     */
+    public Builder format(Format format) {
+      this.format = format;
+      return this;
+    }
+
+    /**
      * Configure the dataset's partitioning strategy. Optional.
      *
      * @return An instance of the builder for method chaining.
@@ -261,7 +295,7 @@ public class DatasetDescriptor {
       Preconditions.checkState(schema != null,
         "Descriptor schema may not be null");
 
-      return new DatasetDescriptor(schema, partitionStrategy);
+      return new DatasetDescriptor(schema, format, partitionStrategy);
     }
 
   }
