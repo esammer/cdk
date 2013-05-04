@@ -23,7 +23,7 @@
   <parent>
     <artifactId>cdk-parent</artifactId>
     <groupId>com.cloudera</groupId>
-    <version>0.2.0-SNAPSHOT</version>
+    <version>0.2.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>cdk-application-repo</artifactId>
