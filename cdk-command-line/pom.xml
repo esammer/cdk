@@ -34,7 +34,6 @@
         <artifactId>maven-assembly-plugin</artifactId>
         <executions>
           <execution>
-            <phase>package</phase>
             <goals>
               <goal>single</goal>
             </goals>
