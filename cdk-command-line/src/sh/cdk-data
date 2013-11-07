@@ -1,3 +1,48 @@
 #!/bin/bash
 
-main_class="com.cloudera.cdk.cli.Application"
+app_script_name=$(basename $0)
+app_lib_dir="lib"
+app_main_class="com.cloudera.cdk.cli.Application"
+
+error() {
+  local msg="$1"
+  local exit_code="$2"
+
+  echo "Error: $msg"
+
+  if [ -n "$exit_code" ] ; then
+    exit "$exit_code"
+  fi
+}
+
+debug() {
+  local msg="$1"
+  echo $(date "+%X") "$msg"
+}
+
+detect_command() {
+  local cmd="$1"
+  local var_name="$2"
+
+  local cmd_path=$(type -p "$cmd")
+
+  if [ -z "$cmd_path" ] ; then
+    error "Unable to locate command: $cmd_path" 1
+  fi
+
+  if [ -z "$var_name" ] ; then
+    var_name=$(echo $cmd | tr 'a-z' 'A-Z' | sed -e 'y/\//_/')
+  fi
+
+  eval "$var_name=$cmd_path"
+
+  debug "Detected command:$cmd path:$cmd_path variable:$var_name"
+}
+
+validate_env() {
+  detect_command java
+}
+
+validate_env
+
+$JAVA -cp "target/classes:$app_lib_dir/*" "$app_main_class" "$@"
