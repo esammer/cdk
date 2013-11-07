@@ -15,6 +15,7 @@
  */
 package com.cloudera.cdk.cli;
 
+import com.cloudera.cdk.data.Dataset;
 import com.cloudera.cdk.data.DatasetDescriptor;
 import com.cloudera.cdk.data.DatasetRepositories;
 import com.cloudera.cdk.data.DatasetRepository;
@@ -22,6 +23,7 @@ import com.cloudera.cdk.data.Formats;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import org.apache.avro.generic.GenericRecord;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.GnuParser;
@@ -63,6 +65,7 @@ public class Application {
       if (commandLine.hasOption("create")) {
         DatasetRepository repo = DatasetRepositories.open(commandLine.getOptionValue("repo"));
 
+        logger.debug("schema:{}", commandLine.getOptionValue("schema"));
         DatasetDescriptor.Builder descBuilder = new DatasetDescriptor.Builder()
           .schemaLiteral(commandLine.getOptionValue("schema"));
 
@@ -93,6 +96,19 @@ public class Application {
         for (String datasetName : repo.list()) {
           System.out.println(datasetName);
         }
+      } else if (commandLine.hasOption("info")) {
+        DatasetRepository repo = DatasetRepositories.open(commandLine.getOptionValue("repo"));
+
+        Dataset<GenericRecord> dataset = repo.load(commandLine.getOptionValue("name"));
+        DatasetDescriptor descriptor = dataset.getDescriptor();
+
+        System.out.println(
+          String.format("%-20s%s\n%-20s%s\n\n%s\n---------\n%s",
+            "Name", dataset.getName(),
+            "Format", descriptor.getFormat().getName(),
+            "Schema", descriptor.getSchema().toString(true)
+          )
+        );
       } else {
         displayHelp();
       }
@@ -145,6 +161,8 @@ public class Application {
       .description("list existing datasets").get());
     options.addOption(new OptionBuilder().shortOption("d").longOption("drop")
       .description("drop a dataset").get());
+    options.addOption(new OptionBuilder().shortOption("i").longOption("info")
+      .description("display dataset info").get());
 
     // Dataset create options
     options.addOption(new OptionBuilder().shortOption("f").longOption("format")
@@ -191,11 +209,13 @@ public class Application {
     exclusiveOf.put("update", Sets.newHashSet("create", "drop", "list", "format", "permissions"));
     exclusiveOf.put("drop", Sets.newHashSet("create", "update", "list", "format", "permissions", "schema"));
     exclusiveOf.put("list", Sets.newHashSet("create", "drop", "update", "format", "permissions", "schema", "name"));
+    exclusiveOf.put("info", Sets.newHashSet("create", "list", "drop", "update", "format", "permissions", "schema"));
 
     requiredWith.put("create", Sets.newHashSet("repo", "name", "schema"));
     requiredWith.put("update", Sets.newHashSet("repo", "name"));
     requiredWith.put("drop", Sets.newHashSet("repo", "name"));
     requiredWith.put("list", Sets.newHashSet("repo"));
+    requiredWith.put("info", Sets.newHashSet("repo", "name"));
 
     for (Option option : commandLine.getOptions()) {
       if (exclusiveOf.containsKey(option.getLongOpt())) {
